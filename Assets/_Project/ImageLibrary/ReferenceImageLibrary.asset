@@ -21,19 +21,39 @@ MonoBehaviour:
       m_GuidLow: 4995013239957241192
       m_GuidHigh: 4979448351426350242
     m_SerializedTextureGuid:
-      m_GuidLow: 9404880294843955140
-      m_GuidHigh: 15803281042037219083
+      m_GuidLow: 13093287300688052768
+      m_GuidHigh: 3377186617672834136
     m_Size: {x: 0, y: 0}
     m_SpecifySize: 0
-    m_Name: overwatch_logo
+    m_Name: estudiante_1
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5478756253299641788
       m_GuidHigh: 2137622813065105554
     m_SerializedTextureGuid:
-      m_GuidLow: 8400595708464727262
-      m_GuidHigh: 6721788258679218569
+      m_GuidLow: 11512498077302584875
+      m_GuidHigh: 237038262852734457
     m_Size: {x: 0, y: 0}
     m_SpecifySize: 0
-    m_Name: Unity.XR.ARCore.Editor.Tests-UnityLogo White On Black
+    m_Name: estudiante_2
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4949796153535961105
+      m_GuidHigh: 8440958905142786962
+    m_SerializedTextureGuid:
+      m_GuidLow: 10490209379648371374
+      m_GuidHigh: 9135033622021846666
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: estudiante_3
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5141150111542666035
+      m_GuidHigh: 2735382295443250851
+    m_SerializedTextureGuid:
+      m_GuidLow: 6297231864923899800
+      m_GuidHigh: 4318642735251875738
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: estudiante_4
     m_Texture: {fileID: 0}
