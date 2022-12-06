@@ -1,18 +1,44 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
 
 public class ImageTrackingController : MonoBehaviour
 {
     [SerializeField] private ARTrackedImageManager trackedImageManager = null;
-    public GameObject[] arPrefabs;
+    [SerializeField] private GameObject[] prefabs;
     private Dictionary<string, GameObject> instances;
 
     private void Awake()
     {
         instances = new Dictionary<string, GameObject>();
+    }
+
+    private void Start()
+    {
+#if UNITY_EDITOR
+        DebugInitialValues();
+#endif
+        
+        foreach (var prefab in prefabs)
+        {
+            var defaultPosition = Vector3.zero;
+            var newPrefab = Instantiate(prefab, defaultPosition, Quaternion.identity);
+            newPrefab.name = prefab.name;
+            newPrefab.SetActive(false);
+            instances.Add(newPrefab.name, newPrefab);
+        }
+    }
+
+    private void DebugInitialValues()
+    {
+        Debug.Log($"referenceLibrary.Count: {trackedImageManager.referenceLibrary.count}");
+        var size = trackedImageManager.referenceLibrary.count;
+        for (var i = 0; i < size; i++)
+        {
+            var trackedImage = trackedImageManager.referenceLibrary[i];
+            var trackedImageName = trackedImage.name;
+            Debug.Log($"\ttrackedImage: {trackedImageName}");
+        }
     }
 
     private void OnEnable()
@@ -25,50 +51,39 @@ public class ImageTrackingController : MonoBehaviour
         trackedImageManager.trackedImagesChanged -= OnTrackedImageChanged;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTrackedImageChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
         // image detection
         foreach (var trackedImage in eventArgs.added)
         {
-            var imageName = trackedImage.referenceImage.name;
-            foreach (var prefab in arPrefabs)
-            {
-                if (string.Compare(prefab.name, imageName, StringComparison.OrdinalIgnoreCase) == 0
-                    && !instances.ContainsKey(imageName))
-                {
-                    var obj = Instantiate(prefab, trackedImage.transform);
-                    instances.Add(imageName, obj);
-                }
-            }
+            Debug.Log($"referenceImage.name: {trackedImage.referenceImage.name}");
+            // UpdateInstance(trackedImage);
         }
         
         // object activation / deactivation
         foreach (var trackedImage in eventArgs.updated)
         {
-            var imageName = trackedImage.referenceImage.name;
-            var trackingState = trackedImage.trackingState == TrackingState.Tracking;
-            instances[imageName].SetActive(trackingState);
-            instances[imageName].transform.position = trackedImage.transform.position;
+            // UpdateInstance(trackedImage);
         }
         
         // object deletion
         foreach (var trackedImage in eventArgs.removed)
         {
-            var imageName = trackedImage.referenceImage.name;
-            Destroy(instances[imageName]);
-            instances.Remove(imageName);
+            // var imageName = trackedImage.referenceImage.name;
+            // if(!instances.ContainsKey(imageName)) continue;
+            // instances[imageName].SetActive(false);
         }
     }
+
+    public void UpdateInstance(ARTrackedImage trackedImage, bool isActive = true)
+    {
+        Debug.Log(trackedImage);
+        // var imageName = trackedImage.name;
+        // if (!instances.ContainsKey(imageName)) return;
+        //
+        // var instance = instances[imageName];
+        // instance.SetActive(true);
+        // instance.transform.position = trackedImage.transform.position;
+    }
+    
 }

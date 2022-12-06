@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ARReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 4973041948266337491
+  m_GuidHigh: 12567844633323411643
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 4860886170202922689
+      m_GuidHigh: 11458300851817784470
+    m_SerializedTextureGuid:
+      m_GuidLow: 631865443764895312
+      m_GuidHigh: 9076950444410813065
+    m_Size: {x: 0.12, y: 0.12020583}
+    m_SpecifySize: 1
+    m_Name: metallica
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5055788923117207331
+      m_GuidHigh: 8026919908802929801
+    m_SerializedTextureGuid:
+      m_GuidLow: 13503047875773153377
+      m_GuidHigh: 11127547437403281418
+    m_Size: {x: 0.07, y: 0.07}
+    m_SpecifySize: 1
+    m_Name: overwatch
+    m_Texture: {fileID: 0}
