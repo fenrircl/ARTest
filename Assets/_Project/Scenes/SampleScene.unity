@@ -477,6 +477,8 @@ GameObject:
   - component: {fileID: 1998229886}
   - component: {fileID: 1998229885}
   - component: {fileID: 1998229888}
+  - component: {fileID: 1998229889}
+  - component: {fileID: 1998229890}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -513,7 +515,7 @@ MonoBehaviour:
   m_Camera: {fileID: 1704318431}
   m_OriginBaseGameObject: {fileID: 1998229884}
   m_CameraFloorOffsetObject: {fileID: 1566374574}
-  m_RequestedTrackingOriginMode: 1
+  m_RequestedTrackingOriginMode: 0
   m_CameraYOffset: 1.1176
 --- !u!4 &1998229887
 Transform:
@@ -543,9 +545,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SerializedLibrary: {fileID: 11400000, guid: 537cbcc4380aa6d45b26efd3720171b9, type: 2}
-  m_MaxNumberOfMovingImages: 4
-  m_TrackedImagePrefab: {fileID: 5156097925923484233, guid: eedb68a64b007304c8bb0cd78a417bbb, type: 3}
+  m_SerializedLibrary: {fileID: 11400000, guid: 2734f44d5b19ece41b0ece9257418d75, type: 2}
+  m_MaxNumberOfMovingImages: 9
+  m_TrackedImagePrefab: {fileID: 0}
+--- !u!114 &1998229889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998229884}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c6ddeb5f6e08c4185dfd5ade9206c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trackedImagesManager: {fileID: 1998229888}
+  ArPrefabs:
+  - {fileID: 5156097925923484233, guid: eedb68a64b007304c8bb0cd78a417bbb, type: 3}
+  - {fileID: 638746843864205194, guid: f5b24f04161d54d46b96d8b8dc0efcf3, type: 3}
+--- !u!114 &1998229890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998229884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b641eeeacb78904c9f51d2d6e63a674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ARTrackedImageManager: {fileID: 1998229888}
+  ARPrefabsToPlace:
+  - {fileID: 638746843864205194, guid: f5b24f04161d54d46b96d8b8dc0efcf3, type: 3}
+  - {fileID: 5156097925923484233, guid: eedb68a64b007304c8bb0cd78a417bbb, type: 3}
+  - {fileID: 638746843864205194, guid: 9f1dd825883ae5d42ade3f6cd0840cdc, type: 3}
 --- !u!1 &2070412155
 GameObject:
   m_ObjectHideFlags: 0
