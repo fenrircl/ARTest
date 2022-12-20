@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.itisnajim.socketiounity": {
+      "version": "file:C:/Users/Fenrir/Downloads/SocketIOUnity-1.1.4",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.0.2"
+      }
+    },
     "com.ptc.vuforia.engine": {
       "version": "file:com.ptc.vuforia.engine-10.12.3.tgz",
       "depth": 0,
@@ -76,7 +84,7 @@
     },
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.0.2",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
