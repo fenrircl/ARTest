@@ -37,13 +37,15 @@ public class MultiTargetManager : MonoBehaviour
     {
         foreach (var trackedImage in eventData.added)
         {
-            ShowARObject(trackedImage);
+            //ShowARObject(trackedImage);
+            DumpToConsole(trackedImage);
+
         }
         foreach (var trackedImage in eventData.updated)
         {
             if(trackedImage.trackingState == TrackingState.Tracking)
             {
-                ShowARObject(trackedImage);
+                //ShowARObject(trackedImage);
             }
             else if(trackedImage.trackingState == TrackingState.Limited)
             {
@@ -55,7 +57,7 @@ public class MultiTargetManager : MonoBehaviour
 
     private void ShowARObject(ARTrackedImage trackedImage)
     {
-        print(trackedImage.referenceImage.name);
+        //DumpToConsole(trackedImage.);
         bool isObjectActivated = prefabState[trackedImage.referenceImage.name];
         if(!isObjectActivated)
         {
@@ -81,5 +83,10 @@ public class MultiTargetManager : MonoBehaviour
             prefabState[trackedImage.referenceImage.name] = false;
         }
     }
-    
+
+    public static void DumpToConsole(object obj)
+    {
+        var output = JsonUtility.ToJson(obj, true);
+        Debug.Log(output);
+    }
 }
