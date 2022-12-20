@@ -76,5 +76,5 @@ crashlytics-build.properties
 
 *.tgz
 
-/Resources/VuforiaModels/
-/SamplesResources/
+/[Aa]ssets/Resources/VuforiaModels/
+/[Aa]ssets/SamplesResources/
