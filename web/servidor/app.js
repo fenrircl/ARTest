@@ -5,11 +5,23 @@ const socket = require('socket.io');
 const server = http.createServer();
 const port = 3000;
 
+const express = require('express');
+const app = express();
+app.use(express.static("cliente"));
+
+const path = require('path');
 
 // var io = socket(server, {
 //     pingInterval: 10000,
 //     pingTimeout: 5000
 // });
+
+app.get('/', (req, res) => {
+  //res.send('Hello World!')
+  res.sendFile(path.join(__dirname, '/cliente/index.html'));
+
+  });
+
 
 const io = require("socket.io")(server, {
     cors: {
@@ -80,6 +92,9 @@ io.on('connection', socket => {
 });
 
 
-server.listen(port, () => {
-  console.log('listening on *:' + port);
+// 
+server.listen(3000, () => {
+  console.log('listening on *:' + 3000);
 });
+
+app.listen(3001, () => console.log('Example app listening on port 3001!'));
