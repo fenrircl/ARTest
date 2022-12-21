@@ -5,10 +5,9 @@ using SocketIOClient.Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
 using Newtonsoft.Json.Linq;
-
 //using Debug = System.Diagnostics.Debug;
-
-
+using MiniJSON;
+using SimpleJSON;
 public class SocketManager : MonoBehaviour
 {
     public SocketIOUnity socket;
@@ -19,11 +18,14 @@ public class SocketManager : MonoBehaviour
 
     public GameObject objectToSpin;
 
+    public GameObject myGameObject;
+
+
     // Start is called before the first frame update
     void Start()
     {
         //TODO: check the Uri if Valid.
-        var uri = new Uri("http://localhost:11100");
+        var uri = new Uri("http://localhost:3000");
         socket = new SocketIOUnity(uri, new SocketIOOptions
         {
             Query = new Dictionary<string, string>
@@ -44,11 +46,11 @@ public class SocketManager : MonoBehaviour
         };
         socket.OnPing += (sender, e) =>
         {
-            Debug.Log("Ping");
+            //Debug.Log("Ping");
         };
         socket.OnPong += (sender, e) =>
         {
-            Debug.Log("Pong: " + e.TotalMilliseconds);
+            //Debug.Log("Pong: " + e.TotalMilliseconds);
         };
         socket.OnDisconnected += (sender, e) =>
         {
@@ -76,16 +78,36 @@ public class SocketManager : MonoBehaviour
         });
         socket.OnUnityThread("spin", (data) =>
         {
-            Debug.Log(data);
+            //Debug.Log(data);
             rotateAngle = 0;
         });
 
         //ReceivedText.text = "";
         socket.OnAnyInUnityThread((name, response) =>
         {
-            Debug.Log("OnAnyInUnityThread "+name);
+            //Debug.Log("OnAnyInUnityThread "+name);
             if(name=="spin"){
                 rotateAngle = 0;
+            }
+             if(name=="listado_estudiantes"){
+               //var coso = Json.Deserialize(response.ToString());
+                //var obj = response.GetValue<SocketManager>();
+                // var coso = JsonUtility.FromJson<SocketManager>(response.ToString());
+                // //var coso = Decode(response.GetValue);
+                // print(coso);
+                // Debug.Log("value :" + response.ToString());  // [{"test" : "test"}]
+                var obj = JSON.Parse(response.ToString())[0];
+                Debug.Log(obj["data"]);
+                foreach(var kvp in obj)
+                {
+                    Debug.Log("Dict = " + kvp.Key + " : " + kvp.Value.Value);
+                }
+                //Debug.Log("value :" + response.GetValue().ToString());  // syntax error red line. So only using custom class syntax could be used.
+
+                // foreach( var x in data) {
+                // Debug.Log( x.ToString());
+                // }
+                ListadoEstudiantes();
             }
             //ReceivedText.text += "Received On " + name + " : " + response.GetValue().GetRawText() + "\n";
         });
@@ -130,7 +152,9 @@ public class SocketManager : MonoBehaviour
 
     public void EmitSpin()
     {
-        socket.Emit("spin");
+        //var coso = gameObject.GetComponent<SocketManager>();
+        //Debug.Log(socket);
+       // coso.socket.Emit("spin");
     }
 
 
@@ -146,10 +170,40 @@ public class SocketManager : MonoBehaviour
             rotateAngle++;
             objectToSpin.transform.Rotate(0, 1, 0);
         }
+ 
+    }
 
-        socket.OnUnityThread("spin", (res) =>
+    public void EmitEvaluados(string obj)
+    {
+        Debug.Log(obj);
+        socket.Emit("estudiantes_evaluados",obj);
+        //socket.Emit("spin");
+    }
+
+    public void ListadoEstudiantes()
+    {
+
+    }
+
+
+    public Dictionary<string, string> Decode(string encodedJson, string[] keys)
+    {
+        var details = JObject.Parse(encodedJson);
+        Dictionary<string, string> decodedjson = new Dictionary<string, string>();
+        foreach (var key in keys)
         {
-         // Debug.Log("csi")
-        });
+            decodedjson.Add(key, details[key].ToString());
+        }
+
+        return decodedjson;
     }
 }
+
+public class ConsoleFriendlyList<T> : List<T>
+{
+    public override string ToString()
+    {
+        return $"List: {string.Join(", ", this)}";
+    }
+}
+
