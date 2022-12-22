@@ -194,7 +194,8 @@ cargar_select=()=>{
       //console.log(LISTADO_ESTUDIANTES[i].MOSTRAR)
       let checked = `${i<5?"checked":""}`
       html+=`
-      <li class="list-group-item"><input  data-id="${i}" lista="${LISTADO_ESTUDIANTES[i].LISTA}" type="checkbox" class=" form-check-input me-1 mr-5" ${checked} style="cursor: pointer;"> <b>${i+1}</b>-. ${LISTADO_ESTUDIANTES[i].NOMBRE}<span id="${LISTADO_ESTUDIANTES[i].LISTA}"><span class="badge rounded-pill bg-danger">Danger</span>
+      <li class="list-group-item"><input  data-id="${i}" lista="${LISTADO_ESTUDIANTES[i].LISTA}" type="checkbox" class=" form-check-input me-1 mr-5" ${checked} style="cursor: pointer;"> <b>${i+1}</b>-. ${LISTADO_ESTUDIANTES[i].NOMBRE}<span id="${LISTADO_ESTUDIANTES[i].LISTA}">
+      <span class="badge rounded-pill bg-danger"></span>
       </i>
       </span></li>
       `;
@@ -231,6 +232,8 @@ actualizar_evaluados=(obj)=>{
   console.log(obj)
   let html = `<span class="badge rounded-pill bg-success">Evaluado ${obj.data}</span>`
   if(obj.data){
-    $("#"+obj.data).html(html)
+    let id = obj.data.split(",")[0]
+    console.error(id)
+    $("#"+id).html(html)
   }
 }

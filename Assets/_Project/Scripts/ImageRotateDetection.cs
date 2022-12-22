@@ -7,7 +7,7 @@ public class ImageRotateDetection : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_Object;
      [SerializeField] GameObject target= null;
      [SerializeField] string id=null;
-     [SerializeField] bool respuesta=false;
+     [SerializeField] string respuesta;
 
     //GameManager GM;
     [SerializeField] GameManager GM=null;
@@ -26,35 +26,38 @@ public class ImageRotateDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!respuesta)
-        {
+    
         //   var angle2 = Vector3.Angle(target.transform.up, Vector3.up);
             var angle = gameObject.transform.rotation.eulerAngles;
             //m_Object.text = angle.ToString();//angle2.ToString();
             var temp = "";
+            var resp = "";
             if(angle.y >= 100 && angle.y <= 255)
             {
                 temp = "arriba";
+                resp = "A";
             }
             else if(angle.y > 80 && angle.y < 110)
             {
                 temp = "derecha";
-
+                resp = "B"; 
             }
                 else if(angle.y > 280 && angle.y < 360 || angle.y > 0 && angle.y < 100)
             {
                 temp = "abajo";
+                resp = "C";
 
             }
                     else if(angle.y > 255 && angle.y < 280)
             {
                 temp = "izquierda";
+                resp = "D";
 
             }
-            if(temp!=""){
-            respuesta = true;
-            Debug.Log(temp+ " "+id);
-            GM.EnviarRespuesta(id);
+            if(respuesta!=resp){
+                respuesta = resp;
+                Debug.Log(temp+ " "+id);
+                GM.EnviarRespuesta(id+ ","+resp);
             }
             m_Object.text=temp+" "+angle.y;
             //     else if(angle.y > 320 && angle.y < 30)
@@ -62,7 +65,7 @@ public class ImageRotateDetection : MonoBehaviour
             //     m_Object.text = "derecha";
 
             // }
-        }
+        
     }
 
     public void showRotation()

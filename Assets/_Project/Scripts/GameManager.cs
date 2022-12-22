@@ -17,15 +17,15 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public  void EnviarRespuesta(object obj)
+    public  void EnviarRespuesta(string obj)
     {
         //var sm = new SocketManager();
         //sm.EmitEvaluados(obj);
-        //var sm = this.GetComponent<SocketManager>();
+        var sm = this.GetComponent<SocketManager>();
         //Debug.Log(obj);
         //socketManager.EmitEvaluados(obj);
         //Debug.Log(socketManager);
-        //if(socketManager)
-        //socketManager.EmitSpin();
+        if(socketManager)
+        socketManager.EmitEvaluados(obj);
     }
 }

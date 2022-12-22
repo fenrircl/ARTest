@@ -10,7 +10,7 @@ using MiniJSON;
 using SimpleJSON;
 public class SocketManager : MonoBehaviour
 {
-    public SocketIOUnity socket;
+    public static SocketIOUnity socket;
 
     public InputField EventNameTxt;
     public InputField DataTxt;
