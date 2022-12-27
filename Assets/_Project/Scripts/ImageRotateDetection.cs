@@ -57,10 +57,17 @@ public class ImageRotateDetection : MonoBehaviour
             if(respuesta!=resp){
                 respuesta = resp;
                 print(resp+" /"+respuesta);
+                var respuesta_correcta = GM.getRespuestaCorrecta();
                 //Debug.Log(temp+ " "+id);
                 if(!contoRespuesta) {
                     GM.setTotalEvaluados();
                     contoRespuesta = true;
+                    if(respuesta_correcta==resp){
+                        print("acierta");
+                    }
+                    else{
+                        print("no acierta");
+                    }
                 }
                 GM.EnviarRespuesta(id+ ","+resp);
             }

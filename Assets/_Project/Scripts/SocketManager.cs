@@ -89,7 +89,7 @@ public class SocketManager : MonoBehaviour
             if(name=="spin"){
                 rotateAngle = 0;
             }
-             if(name=="listado_estudiantes"){
+            if(name=="listado_estudiantes"){
                //var coso = Json.Deserialize(response.ToString());
                 //var obj = response.GetValue<SocketManager>();
                 // var coso = JsonUtility.FromJson<SocketManager>(response.ToString());
@@ -116,6 +116,14 @@ public class SocketManager : MonoBehaviour
                 // Debug.Log( x.ToString());
                 // }
                 ListadoEstudiantes();
+            }
+            if(name=="respuesta_correcta"){
+                var gm = this.GetComponent<GameManager>();
+                                var obj = JSON.Parse(response.ToString())[0];
+
+                 Debug.Log(obj["data"]);
+                 if(obj["data"])
+                 gm.setRespuestaCorrecta(obj["data"]);
             }
             //ReceivedText.text += "Received On " + name + " : " + response.GetValue().GetRawText() + "\n";
         });
@@ -183,7 +191,7 @@ public class SocketManager : MonoBehaviour
 
     public void EmitEvaluados(string obj)
     {
-        Debug.Log(obj);
+        //Debug.Log(obj);
         socket.Emit("estudiantes_evaluados",obj);
         //socket.Emit("spin");
     }

@@ -231,12 +231,16 @@ enviarListado=()=>{
   if(array_listado.length>0){
     console.log("listado_estudiantes")
     socket.emit('listado_estudiantes', array_listado); 
+    socket.emit('respuesta_correcta', $('input[name=evaluacion]:checked').val()); 
+    
   }
   resetearEvaluados();
 }
 actualizar_evaluados=(obj)=>{
   console.log(obj)
-  let html = `<span class="badge rounded-pill bg-success">Evaluado ${obj.data}</span>`
+  let respuesta = $('input[name=evaluacion]:checked').val()==obj.data.split(",")[1]?"success":"danger"
+  let html = `<span class="badge rounded-pill bg-${respuesta}">Evaluado ${obj.data}</span>`
+
   if(obj.data){
     let id = obj.data.split(",")[0]
     console.error(id)

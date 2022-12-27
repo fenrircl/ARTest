@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI labelEvaluados;
     [SerializeField] private int totalEvaluados=0;
     [SerializeField] private int totalAEvaluar=0;
+    [SerializeField] private string respuestaCorrecta="";
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,15 @@ public class GameManager : MonoBehaviour
     {
         totalEvaluados=0;
     }
-
+    
+    public void setRespuestaCorrecta(string resp)
+    {
+        respuestaCorrecta=resp;
+    }
+    public string getRespuestaCorrecta()
+    {
+        return "respuestaCorrecta";
+    }
     public void getTotalEvaluar(int ev)
     {
         

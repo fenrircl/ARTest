@@ -84,6 +84,10 @@ io.on('connection', socket => {
     io.sockets.emit('estudiantes_evaluados', {date: new Date().getTime(), data: data});
   });
   
+  socket.on('respuesta_correcta', (data) => {
+    console.log('respuesta_correcta');
+    io.sockets.emit('respuesta_correcta', {date: new Date().getTime(), data: data});
+  });
 
 //   socket.on('class', (data) => {
 //     console.log('class', data);
