@@ -1,6 +1,6 @@
 $(function () {
   });
-  const socket = io('http://localhost:3000', { 
+  const socket = io('http://socketio.integritic.cl:3000', { 
     transports: ['websocket'] ,
     query: {
         "token": "UNITY"

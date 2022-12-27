@@ -25,7 +25,7 @@ public class SocketManager : MonoBehaviour
     void Start()
     {
         //TODO: check the Uri if Valid.
-        var uri = new Uri("http://192.168.0.126:3000");
+        var uri = new Uri("http://socketio.integritic.cl:3000");
         socket = new SocketIOUnity(uri, new SocketIOOptions
         {
             Query = new Dictionary<string, string>
