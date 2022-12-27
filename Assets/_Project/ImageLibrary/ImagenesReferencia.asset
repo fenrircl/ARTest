@@ -21,19 +21,19 @@ MonoBehaviour:
       m_GuidLow: 4794479413532855127
       m_GuidHigh: 2801353714368795008
     m_SerializedTextureGuid:
-      m_GuidLow: 13503047875773153377
-      m_GuidHigh: 11127547437403281418
+      m_GuidLow: 5000528555714312453
+      m_GuidHigh: 3865059334600964540
     m_Size: {x: 0.1, y: 0.1}
     m_SpecifySize: 1
-    m_Name: overwatch
+    m_Name: estudiante_1
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5246781064710580483
       m_GuidHigh: 14073163287217268387
     m_SerializedTextureGuid:
-      m_GuidLow: 631865443764895312
-      m_GuidHigh: 9076950444410813065
-    m_Size: {x: 0.1, y: 0.10017153}
+      m_GuidLow: 4669153593840061558
+      m_GuidHigh: 132910650595005096
+    m_Size: {x: 0.1, y: 0.1}
     m_SpecifySize: 1
-    m_Name: metallica
+    m_Name: estudiante_2
     m_Texture: {fileID: 0}

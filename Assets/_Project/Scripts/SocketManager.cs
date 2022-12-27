@@ -25,7 +25,7 @@ public class SocketManager : MonoBehaviour
     void Start()
     {
         //TODO: check the Uri if Valid.
-        var uri = new Uri("http://localhost:3000");
+        var uri = new Uri("http://192.168.0.126:3000");
         socket = new SocketIOUnity(uri, new SocketIOOptions
         {
             Query = new Dictionary<string, string>
@@ -96,12 +96,18 @@ public class SocketManager : MonoBehaviour
                 // //var coso = Decode(response.GetValue);
                 // print(coso);
                 // Debug.Log("value :" + response.ToString());  // [{"test" : "test"}]
+               
                 var obj = JSON.Parse(response.ToString())[0];
-                Debug.Log(obj["data"]);
-                foreach(var kvp in obj)
+                var counter=0;
+                 var gm = this.GetComponent<GameManager>();
+                
+                // Debug.Log(obj["data"]);
+                foreach(var kvp in obj["data"])
                 {
-                    Debug.Log("Dict = " + kvp.Key + " : " + kvp.Value.Value);
+                    //Debug.Log("Dict = " + kvp.Key + " : " + kvp.Value.Value);
+                    counter++;
                 }
+                gm.getTotalEvaluar(counter);
                 //Debug.Log("value :" + response.GetValue().ToString());  // syntax error red line. So only using custom class syntax could be used.
 
                 // foreach( var x in data) {

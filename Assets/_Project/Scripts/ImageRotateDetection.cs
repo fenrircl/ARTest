@@ -8,7 +8,7 @@ public class ImageRotateDetection : MonoBehaviour
      [SerializeField] GameObject target= null;
      [SerializeField] string id=null;
      [SerializeField] string respuesta;
-
+    private bool contoRespuesta=false;
     //GameManager GM;
     [SerializeField] GameManager GM=null;
 
@@ -19,7 +19,7 @@ public class ImageRotateDetection : MonoBehaviour
         //GM = new GameManager();
         //GM = gameObject.GetComponent<GameManager>();
 
-        GM.EnviarRespuesta("coso");
+        //GM.EnviarRespuesta("coso");
       
     }
 
@@ -32,23 +32,23 @@ public class ImageRotateDetection : MonoBehaviour
             //m_Object.text = angle.ToString();//angle2.ToString();
             var temp = "";
             var resp = "";
-            if(angle.y >= 100 && angle.y <= 255)
+            if(angle.y >= 110 && angle.y <= 255)
             {
                 temp = "arriba";
                 resp = "A";
             }
-            else if(angle.y > 80 && angle.y < 110)
+            else if(angle.y > 105 && angle.y < 120)
             {
                 temp = "derecha";
                 resp = "B"; 
             }
-                else if(angle.y > 280 && angle.y < 360 || angle.y > 0 && angle.y < 100)
+                else if(angle.y > 280 && angle.y < 360 || angle.y > 0 && angle.y < 120)
             {
                 temp = "abajo";
                 resp = "C";
 
             }
-                    else if(angle.y > 255 && angle.y < 280)
+                    else if(angle.y > 270 && angle.y < 280)
             {
                 temp = "izquierda";
                 resp = "D";
@@ -56,7 +56,12 @@ public class ImageRotateDetection : MonoBehaviour
             }
             if(respuesta!=resp){
                 respuesta = resp;
-                Debug.Log(temp+ " "+id);
+                print(resp+" /"+respuesta);
+                //Debug.Log(temp+ " "+id);
+                if(!contoRespuesta) {
+                    GM.setTotalEvaluados();
+                    contoRespuesta = true;
+                }
                 GM.EnviarRespuesta(id+ ","+resp);
             }
             m_Object.text=temp+" "+angle.y;
