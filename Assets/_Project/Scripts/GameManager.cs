@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
         totalEvaluados++;
     }
 
+    public void resetEvaluacion()
+    {
+        totalEvaluados=0;
+    }
+
     public void getTotalEvaluar(int ev)
     {
         

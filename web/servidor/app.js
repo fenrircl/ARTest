@@ -76,7 +76,7 @@ io.on('connection', socket => {
   socket.on('listado_estudiantes', (data) => {
     console.log('listado_estudiantes');
     //socket.emit('listado_estudiantes', {date: new Date().getTime(), data: data});
-    io.sockets.emit('listado_estudiantes', {date: new Date().getTime(), data: data});
+    io.sockets.emit('listado_estudiantes', {date: new Date().getTime(), data: data, nueva:true});
   });
 
   socket.on('estudiantes_evaluados', (data) => {

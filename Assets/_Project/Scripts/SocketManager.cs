@@ -101,7 +101,9 @@ public class SocketManager : MonoBehaviour
                 var counter=0;
                  var gm = this.GetComponent<GameManager>();
                 
-                // Debug.Log(obj["data"]);
+                 Debug.Log(obj["nueva"]);
+                 if(obj["nueva"])
+                 gm.resetEvaluacion();
                 foreach(var kvp in obj["data"])
                 {
                     //Debug.Log("Dict = " + kvp.Key + " : " + kvp.Value.Value);
