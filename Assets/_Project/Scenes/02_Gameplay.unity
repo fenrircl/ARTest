@@ -335,8 +335,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Cantidad de evaluados:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 582dd0f086a92c94b8e9f95409b69962, type: 2}
+  m_sharedMaterial: {fileID: 6173140207911011507, guid: 582dd0f086a92c94b8e9f95409b69962,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -360,8 +361,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 17.92
+  m_fontSizeBase: 17.92
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2315,8 +2316,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0/0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 582dd0f086a92c94b8e9f95409b69962, type: 2}
+  m_sharedMaterial: {fileID: 6173140207911011507, guid: 582dd0f086a92c94b8e9f95409b69962,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2340,8 +2342,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 17.92
+  m_fontSizeBase: 17.92
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2654,6 +2656,7 @@ MonoBehaviour:
   labelEvaluados: {fileID: 1320983339}
   totalEvaluados: 0
   totalAEvaluar: 0
+  respuestaCorrecta: 
 --- !u!4 &1555665964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 886372749980539928, guid: 58e290358b818f0458d641a36b16a340,
@@ -3587,7 +3590,7 @@ Transform:
   m_GameObject: {fileID: 2055743441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 914331963}
