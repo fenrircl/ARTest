@@ -81,10 +81,14 @@ cargar_datos_string=async()=>{
 };
 
 var cargar_datos=async()=>{
-    DATOS_COLEGIO = await getDatosColegio(); 
+    //DATOS_COLEGIO = await getDatosColegio(); 
+    DATOS_COLEGIO = await cargar_datos_string();
     getCursos();
     setTimeout(() => {
         cargar_select();
+        setTimeout(() => {
+            changeLetra();
+        }, 1000);
 
     }, 1000);
     
@@ -220,6 +224,7 @@ enviarListado=()=>{
         LISTADO_ESTUDIANTES_A_EVALUAR.push(LISTADO_ESTUDIANTES[lista])
         array_listado.push(lista)
       }
+      
       //console.log(this.text + ' ' + this.value);
   });
   console.error(array_listado)
@@ -227,6 +232,7 @@ enviarListado=()=>{
     console.log("listado_estudiantes")
     socket.emit('listado_estudiantes', array_listado); 
   }
+  resetearEvaluados();
 }
 actualizar_evaluados=(obj)=>{
   console.log(obj)
@@ -236,4 +242,9 @@ actualizar_evaluados=(obj)=>{
     console.error(id)
     $("#"+id).html(html)
   }
+}
+resetearEvaluados=()=>{
+  $(".rounded-pill").each(function() {
+    $(this).html(null)
+  })
 }
