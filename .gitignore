@@ -78,3 +78,5 @@ crashlytics-build.properties
 
 /[Aa]ssets/Resources/VuforiaModels/
 /[Aa]ssets/SamplesResources/
+/[Aa]ssets/Editor/Vuforia/
+/[Aa]ssets/Editor/Migration/
