@@ -61,7 +61,7 @@ public class ImageRotateDetection : MonoBehaviour
                 resp = "D";
 
             }
-            if(respuesta!=resp){
+            if(respuesta!=resp && resp != ""){
                 respuesta = resp;
                 print(resp+" /"+respuesta);
                 var respuesta_correcta = GM.getRespuestaCorrecta();
@@ -75,11 +75,10 @@ public class ImageRotateDetection : MonoBehaviour
                     else{
                         print("no acierta");
                     }
-                     GM.EnviarRespuesta(id+ ","+resp);
+                }
+                GM.EnviarRespuesta(id+ ","+resp);
                 audioSource.PlayOneShot(clip);
             }
-                }
-               
             m_Object.text="Estudiante "+id+" evaluado";
             //     else if(angle.y > 320 && angle.y < 30)
             // {
