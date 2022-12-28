@@ -11,7 +11,7 @@ $(function () {
     const config = {
     headers:{
         'Content-Type':  'application/json',
-        'API_KEY' : "2ba4961b-2fcb-452d-b4d5-01a8a76be66f",
+        'API_KEY' : "",
     },
     withCredentials: false,
     };
