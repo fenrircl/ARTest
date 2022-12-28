@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
+
 public class ImageRotateDetection : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI m_Object;
-     [SerializeField] GameObject target= null;
+    // [SerializeField] GameObject target= null;
      [SerializeField] string id=null;
      [SerializeField] string respuesta;
     private bool contoRespuesta=false;
     //GameManager GM;
     [SerializeField] GameManager GM=null;
+    public AudioSource audioSource;
+    public AudioClip clip;
 
+    //[SerializeField] private gameObject target=null;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +25,9 @@ public class ImageRotateDetection : MonoBehaviour
         //GM = gameObject.GetComponent<GameManager>();
 
         //GM.EnviarRespuesta("coso");
-      
+       // target.GetComponent<Image>().sprite = soundOn;
+
+
     }
 
     // Update is called once per frame
@@ -70,8 +77,9 @@ public class ImageRotateDetection : MonoBehaviour
                     }
                 }
                 GM.EnviarRespuesta(id+ ","+resp);
+                audioSource.PlayOneShot(clip);
             }
-            m_Object.text=temp+" "+angle.y;
+            m_Object.text="Estudiante "+id+" evaluado";
             //     else if(angle.y > 320 && angle.y < 30)
             // {
             //     m_Object.text = "derecha";
