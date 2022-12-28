@@ -75,10 +75,11 @@ public class ImageRotateDetection : MonoBehaviour
                     else{
                         print("no acierta");
                     }
-                }
-                GM.EnviarRespuesta(id+ ","+resp);
+                     GM.EnviarRespuesta(id+ ","+resp);
                 audioSource.PlayOneShot(clip);
             }
+                }
+               
             m_Object.text="Estudiante "+id+" evaluado";
             //     else if(angle.y > 320 && angle.y < 30)
             // {
